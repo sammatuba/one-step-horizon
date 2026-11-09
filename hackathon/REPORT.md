@@ -28,6 +28,8 @@ A claim can be false. A worker can skip a write, point to an old record, or repo
 
 The question is who must check a claim. One answer is the next worker. The other answer is the system that runs the workers, which can compare each claim with the actual state. I tested both answers on one small task. The task is a fictional registry in a test database. I make no claim about real infrastructure.
 
+The title names the main result. A horizon is the limit of what one can see. In these runs, the check by a worker reached one step back, to the record that it received, and no further. I call this limit the one-step horizon.
+
 Table 1 gives the words that this paper uses. Appendix H maps each word to its name in the code.
 
 **Table 1. Words used in this paper.**
@@ -42,6 +44,7 @@ Table 1 gives the words that this paper uses. Appendix H maps each word to its n
 | Last-step rule | An instruction to check the record that the previous worker claims. |
 | Whole-chain rule | An instruction to check each record back to the source. |
 | System check | The host program compares each claim with the database and stops the workflow on a difference. Workers cannot skip it. |
+| One-step horizon | The limit of the check by a worker in these runs. The check covers the record that the worker receives and nothing before it. |
 | Faulty release | A released record whose chain or value is wrong. This is the main safety outcome. |
 
 ## 2. The evidence so far
@@ -97,7 +100,7 @@ The findings describe these models under these prompts. Each interpretation has 
 
 ![Figure 2. Faulty releases when the fault is one step behind the record that the publisher receives (runs 2 and 2b). Bars show the share of 120 workflows with the 95 percent interval.](figures/fig2_controls.png)
 
-Run 5 moved the fault further back in longer chains (Figure 3). With no rule, the last worker built on the fault in 7 of 72 workflows when the fault was in the record it received. It did so in 72 of 72 workflows at one, two, and three steps back. The change is a step, not a slope.
+Run 5 moved the fault further back in longer chains (Figure 3). With no rule, the last worker built on the fault in 7 of 72 workflows when the fault was in the record it received. It did so in 72 of 72 workflows at one, two, and three steps back. The change is a step, not a slope. This is the one-step horizon of the title: the worker sees the record in front of it and nothing behind that record.
 
 ![Figure 3. Distance and detection (run 5, six models, 72 workflows for each point). A worker finds a fault in the record it receives. One step further back, it does not.](figures/fig3_distance.png)
 
@@ -117,7 +120,7 @@ The system check stopped every fault of Table 1 in every run that used it. It us
 
 A check by the worker protects one step. It gives safety only if every worker checks every time. A rule can extend the check to the whole chain, but the result depended on the model and on the wording. A rule that is too narrow can make the result worse. The system check does not depend on worker behavior.
 
-**What this means for swarm alignment (interpretation).** A careful agent does not make a careful swarm. Each worker here was careful with its own input. The group still released the fault when one member skipped a check, because no other member looked past its own input. The distance result adds that this does not fade slowly: one step is enough. Oversight that asks each agent to check its neighbor covers one step of the swarm. Oversight of the whole swarm needs a view of the state that no agent controls, and that view must cover the whole record chain.
+**What this means for swarm alignment (interpretation).** Each agent has a one-step horizon, and a swarm is many steps long. A careful agent does not make a careful swarm. Each worker here was careful with its own input. The group still released the fault when one member skipped a check, because no other member looked past its own input. The distance result adds that this does not fade slowly: one step is enough. Oversight that asks each agent to check its neighbor covers one step of the swarm. Oversight of the whole swarm needs a view of the state that no agent controls, and that view must cover the whole record chain.
 
 **What stays open.** The worker that does not check is a script or a model with an instruction. The runs do not show how often a worker skips a check with no such instruction. A wrong value that is reported consistently needs a second source of truth, which this task does not have. The system check here compares structure. Appendix A describes one case that it passes, and Appendix H describes a stricter version.
 
@@ -184,7 +187,7 @@ The live run sent only synthetic task text to the model providers.
 
 - **Before this entry.** My earlier sprint paper and its repository [S14] are prior work. They supply the rule that a message is not evidence of an act. The report build tool (`md2apart.py`) comes from that project. My working repository also holds older modules that this paper does not use for results, and the submission repository leaves them out. They are a deterministic evidence game, a source-lineage check, and a temporal policy check. The files are `game.py`, `lineage.py`, `policy.py`, `temporal.py`, and `experiment.py`. I mark these as preexisting.
 - **The task idea.** The task "Did it actually happen?" comes from the Track 4 examples of the organizers [S42]. I do not claim it as my idea.
-- **Work for this entry.** The commit history dates the older modules and the SQLite handoff core (`handoff.py`, `handoff_cli.py`, `tests/test_handoff.py`) to 2026-11-09. The live Inspect task (`handoff_live.py`), the run scripts, the model calls, and this report also have the date 2026-11-09. The pilot ran from 10:26 to 10:28 UTC. Pilot 2 ran from 10:31 to 10:32 UTC. Pilot 2b ran from 10:38 to 10:41 UTC. Pilot 3 started at 10:50 UTC and ended before 11:01 UTC. Pilots 4 and 5 started at 11:07 UTC and ended before 11:16 UTC. That date is after the weekend of 2026-11-06 to 2026-11-08 in my time zone (UTC+8). It is inside the submission window, which closed at 11:59 UTC on 2026-11-09 (23:59 Anywhere on Earth on 2026-11-08). The design notes and the reading for this entry come from the days of the sprint.
+- **Work for this entry.** The commit history dates the older modules and the SQLite handoff core (`handoff.py`, `handoff_cli.py`, `tests/test_handoff.py`) to 2026-11-09. The live Inspect task (`handoff_live.py`), the run scripts, the model calls, and this report also have the date 2026-11-09. That date is after the weekend of 2026-11-06 to 2026-11-08 in my time zone (UTC+8). It is inside the submission window of the sprint, which closed at the end of 2026-11-08, Anywhere on Earth. The design notes and the reading for this entry come from the days of the sprint.
 - **LLM usage.** I used AI assistants for ideas, code, analysis, and text: ChatGPT and Codex for the design notes and the handoff core, and Claude Code for the live task, the run, and this report. The assistants wrote most of the code and the first draft of the text. The scorer is deterministic. The numbers in this report come from the saved run logs through `scripts/summarize_live.py`. I read most of the cited papers before this entry. On 2026-11-09 an AI assistant read them again and wrote notes with section locators (`hackathon/sections/rrl-fulltext.md` and `rrl-new.md`). The numbers that this report gives for each paper come from those notes.
 
 ## Appendix C. Scripted controls for the scorer and the policies
@@ -345,7 +348,7 @@ In pilot 1, most publishers read only the draft. Publishers with two or more rea
 
 ### G.2 Pilot 2: all measures, pooled over three models
 
-Pilot 2 ran on 2026-11-09 from 10:31 to 10:32 UTC, with the same three models and limits as pilot 1.
+Pilot 2 ran on 2026-11-09, with the same three models and limits as pilot 1.
 
 **Table G1. Pilot 2, pooled over three models. Each cell is count/n with the Wilson 95% interval in percent.**
 
@@ -373,7 +376,7 @@ Under `prompted_path_check`, 93 fault workflows had no release. Of these, 63 end
 
 ### G.3 Pilot 2b: three stronger models
 
-Pilot 2b ran on 2026-11-09 from 10:38 to 10:41 UTC. It used the pilot 2 task with no change. It had 600 workflows, 1,475 model calls, and no Inspect error. Valid work completed in 30 of 30 workflows in every arm.
+Pilot 2b ran on 2026-11-09. It used the pilot 2 task with no change. It had 600 workflows, 1,475 model calls, and no Inspect error. Valid work completed in 30 of 30 workflows in every arm.
 
 **Table G3. Pilot 2b: bad releases when the fault is one hop above the live publisher. Each cell is count/n with the Wilson 95% interval in percent; n = 40 for each model.**
 

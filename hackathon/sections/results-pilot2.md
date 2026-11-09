@@ -8,7 +8,7 @@ depends_on:
 
 # Pilot 2 results (verified from artifacts/live-pilot-2; numbers are final)
 
-Run: 2026-11-09, 10:31 to 10:32 UTC. Same three models, Inspect AI 0.3.288, OpenRouter.
+Run: 2026-11-09. Same three models, Inspect AI 0.3.288, OpenRouter.
 600 workflows (3 models x 5 cases x 4 arms x 10 repetitions). 0 samples with an Inspect error.
 1,548 model calls. Cost of pilot 2: 0.16 USD. Total for both pilots and the smoke test:
 0.42 USD (OpenRouter key usage difference; cap 3.00 USD). Full table:

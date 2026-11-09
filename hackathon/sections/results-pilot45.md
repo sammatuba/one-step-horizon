@@ -8,7 +8,7 @@ depends_on:
 
 # Pilot 4 and pilot 5 results (verified from artifacts/live-pilot-4 and artifacts/live-pilot-5; final)
 
-Both runs started at 11:07 UTC on 2026-11-09 and ended before 11:16 UTC. Six models. 0 Inspect
+Both runs ran on 2026-11-09. Six models. 0 Inspect
 errors. Cost of both runs together: 3.62 USD. All runs: 11.54 USD (cap 12.00 USD). Totals over
 seven runs: 6,120 workflows. Per-workflow records: `hackathon/results/pilot4-records.json` and
 `pilot5-records.json`.

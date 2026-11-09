@@ -8,7 +8,7 @@ depends_on:
 
 # Pilot 2b results (verified from artifacts/live-pilot-2b; numbers are final)
 
-Run: 2026-11-09, 10:38 to 10:41 UTC. The pilot 2 task with no change, on three stronger models:
+Run: 2026-11-09. The pilot 2 task with no change, on three stronger models:
 `openai/gpt-6.1-terra`, `anthropic/claude-sonnet-5.5`, `google/gemini-3.8-flash`. 600 workflows,
 0 Inspect errors, 1,475 model calls, 1.74 USD. Total for all runs: 2.17 USD (cap 6.00 USD).
 Token totals: gpt-6.1-terra 225,723 input and 16,747 output; claude-sonnet-5.5 147,270 input and

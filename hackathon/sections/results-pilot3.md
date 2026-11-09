@@ -8,7 +8,7 @@ depends_on:
 
 # Pilot 3 results (verified from artifacts/live-pilot-3a and artifacts/live-pilot-3b; final)
 
-Run: 2026-11-09, started 10:50 UTC, both runs at the same time, six models. 0 Inspect errors.
+Run: 2026-11-09, both runs at the same time, six models. 0 Inspect errors.
 Pilot 3a: 1,500 workflows, 4,655 model calls. Pilot 3b: 900 workflows, 4,556 model calls.
 Cost of pilot 3 (both runs together): 5.75 USD. All runs: 7.92 USD (cap 12.00 USD).
 Totals over five runs: 4,320 workflows (720, 600, 600, 1,500, 900).

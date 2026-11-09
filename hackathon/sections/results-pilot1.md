@@ -8,7 +8,7 @@ depends_on:
 
 # Pilot 1 results (verified from artifacts/live-pilot-1; numbers are final)
 
-Run: 2026-11-09, 10:26 to 10:28 UTC. Inspect AI 0.3.288 through OpenRouter. 720 workflows
+Run: 2026-11-09. Inspect AI 0.3.288 through OpenRouter. 720 workflows
 (3 models x 6 cases x 4 arms x 10 repetitions). 0 samples with an Inspect error. 2,489 model
 calls. Token totals as logged by Inspect: gpt-6-luna 351,015 input and 32,709 output;
 claude-haiku-5.5 222,156 input and 100,580 output; deepseek-v4.1-flash 349,898 input and
