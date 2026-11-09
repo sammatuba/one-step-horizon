@@ -1,0 +1,16 @@
+{
+ "models": [
+  "openai/gpt-6-luna",
+  "anthropic/claude-haiku-5.5",
+  "deepseek/deepseek-v4.1-flash"
+ ],
+ "reps": 10,
+ "usd_before": 7.508942496,
+ "usd_after": 7.762377058,
+ "usd_spent": 0.253435,
+ "status": {
+  "openrouter/openai/gpt-6-luna": "success",
+  "openrouter/anthropic/claude-haiku-5.5": "success",
+  "openrouter/deepseek/deepseek-v4.1-flash": "success"
+ }
+}

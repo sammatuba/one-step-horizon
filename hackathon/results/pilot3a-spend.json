@@ -1,0 +1,22 @@
+{
+ "models": [
+  "openai/gpt-6-luna",
+  "anthropic/claude-haiku-5.5",
+  "deepseek/deepseek-v4.1-flash",
+  "openai/gpt-6.1-terra",
+  "anthropic/claude-sonnet-5.5",
+  "google/gemini-3.8-flash"
+ ],
+ "reps": 10,
+ "usd_before": 9.678110527,
+ "usd_after": 15.153720018,
+ "usd_spent": 5.475609,
+ "status": {
+  "openrouter/openai/gpt-6-luna": "success",
+  "openrouter/anthropic/claude-haiku-5.5": "success",
+  "openrouter/deepseek/deepseek-v4.1-flash": "success",
+  "openrouter/openai/gpt-6.1-terra": "success",
+  "openrouter/anthropic/claude-sonnet-5.5": "success",
+  "openrouter/google/gemini-3.8-flash": "success"
+ }
+}

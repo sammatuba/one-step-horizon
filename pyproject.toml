@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "swarm-evidence"
+version = "0.2.0"
+description = "Exploratory critical-infrastructure institutional risk research and deterministic controls"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Strategic Evidence Laundering research contributors"}]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+inspect = ["inspect-ai>=0.3"]
+
+[project.scripts]
+swarm-evidence = "swarm_evidence.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/swarm_evidence"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

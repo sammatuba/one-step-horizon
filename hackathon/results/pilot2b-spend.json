@@ -1,0 +1,16 @@
+{
+ "models": [
+  "openai/gpt-6.1-terra",
+  "anthropic/claude-sonnet-5.5",
+  "google/gemini-3.8-flash"
+ ],
+ "reps": 10,
+ "usd_before": 7.931846927,
+ "usd_after": 9.669720277,
+ "usd_spent": 1.737873,
+ "status": {
+  "openrouter/openai/gpt-6.1-terra": "success",
+  "openrouter/anthropic/claude-sonnet-5.5": "success",
+  "openrouter/google/gemini-3.8-flash": "success"
+ }
+}
