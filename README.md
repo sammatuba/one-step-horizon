@@ -3,7 +3,8 @@
 **AI agents check the work they are handed, not the work behind it.**
 
 Submission to the Apart Research Swarm Alignment Hackathon (2026-11-06 to 2026-11-08), Track 4
-(Multi-Agent Oversight and Control) with Track 1 (Sandboxes and Testbeds) as a supporting track.
+(Multi-Agent Oversight and Control); it also fits Track 2 (The Science of Agent Networks) and
+Track 1 (Sandboxes and Testbeds).
 Author: Jan Samuel Matuba, independent researcher.
 
 - Report: [hackathon/REPORT.pdf](hackathon/REPORT.pdf) (source: [hackathon/REPORT.md](hackathon/REPORT.md))

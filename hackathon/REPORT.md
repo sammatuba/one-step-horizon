@@ -12,7 +12,7 @@ depends_on: ["TRACK_ALIGNMENT.md", "PROVENANCE.md", "../docs/HANDOFF_VERIFICATIO
 
 **Jan Samuel Matuba**, Independent Researcher (jscmatuba@gmail.com)
 
-Apart Research Swarm Alignment Hackathon, 2026-11-06 to 2026-11-08. Track 4: Multi-Agent Oversight and Control. Supporting track: Track 1, Sandboxes and Testbeds.
+Apart Research Swarm Alignment Hackathon, 2026-11-06 to 2026-11-08. Track 4: Multi-Agent Oversight and Control. Also Track 2 (how far a fault spreads in a chain of agents) and Track 1 (a small testbed that other teams can run again).
 
 ## Abstract
 
