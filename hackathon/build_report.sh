@@ -9,6 +9,7 @@ TEMPLATE=$REPO/sources/swarm-template/swarm-alignment-template-2026-11-09.docx
 cd "$REPO"
 python3 "$H/number_citations.py"
 python3 tools/md2apart.py --template "$TEMPLATE" --report "$H/REPORT.numbered.md" --out "$H/REPORT.docx"
+python3 "$H/postprocess_docx.py" "$H/REPORT.docx"
 WIN_TMP=$(powershell.exe -NoProfile -Command 'Write-Output $env:TEMP' | tr -d '\r')
 WT=$(wslpath -u "$WIN_TMP")/swarm-build
 mkdir -p "$WT"
